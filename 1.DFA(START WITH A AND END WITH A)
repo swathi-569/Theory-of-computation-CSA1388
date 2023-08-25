@@ -1,0 +1,27 @@
+#include<stdio.h>
+int transition(int state,char input)
+{
+	if(state==0&&input=='a')return 1;
+	if(state==1&&input=='a')return 1;
+	return 0;
+}
+int main()
+{
+	int currentstate=0;
+	char inputstring[100];
+	printf("enter the input string:");
+	scanf("%s",inputstring);
+	for(int i=0;inputstring[i]!='\0';i++)
+	{
+		currentstate=transition(currentstate,inputstring[i]);
+	}
+	if(currentstate==1)
+	{
+		printf("accepted\n");
+	}
+	else
+	{
+		printf("rejected\n");
+	}
+	return 0;
+}
